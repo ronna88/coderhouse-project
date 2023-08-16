@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    color: #66b3f1;
+    gap: 15px;
+}
+
+.btn-add-remove {
+    margin-right: 2rem;
+    background: #65b3f1;
+    height: 35px;
+    width: 125px;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
