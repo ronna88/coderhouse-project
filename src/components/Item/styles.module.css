@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid ;
+    padding: 10px;
+    flex-direction: column;
+    border-radius: 6px;
+    border-color: #65b3f1;
+    max-height: 380px;
+    min-height: 380px;
+
+    list-style: none;
+    gap: 10px;
+
+    &:hover {
+        background-color:#e8eaf4;
+        border-color: #e8eaf4;
+        transition: linear 0.3s;
+    }
+}
