@@ -55,9 +55,6 @@ export function ItemList() {
 
   return (
     <>
-        <div>
-            <h1 className="title">Lista de Produtos</h1><br/>
-        </div>
         {
           loading ? (<p className={style.loading}>Carregando Produtos...</p>) : (
             <Item items={produtos}/>
