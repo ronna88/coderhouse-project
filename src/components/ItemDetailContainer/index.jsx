@@ -1,34 +1,34 @@
 import { useState, useEffect } from "react";
 import { ItemDetail } from "../ItemDetail";
 import style from "./styles.module.css";
+import { useParams } from "react-router-dom";
 
-export function ItemDetailContainer() {
+// eslint-disable-next-line react/prop-types
+export function ItemDetailContainer({items}) {
     const [produto, setProduto] = useState();
 
-    const item = 
-        {
-          id: 1,
-          title: 'Produto 1',
-          description: "Além de ser extremamente leve e macia, ideal pra qualquer ocasião e estação do ano, a Daily T-Shirt  tem impacto ambiental reduzido: 50% menos uso de água e 50% menos emissões de CO2 na sua produção que uma camiseta de algodão, livre do uso de inseticidas e pesticidas. Composição: 96% viscose e 4% elastano",
-          price: "R$20.98",
-          image_url:'https://th.bing.com/th/id/OIP.brimegRx8S1orCj8ReMOFgHaHG?w=203&h=194&c=7&r=0&o=5&pid=1.7'
-        }
-    ;
+    const { itemId } = useParams();
 
     const getItem = () => {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(item);
-          },5000)
+            if(itemId) {
+              // eslint-disable-next-line react/prop-types
+              var itemSelecionado = items.filter(function(i) {
+                return i.id == itemId
+              });
+              resolve(itemSelecionado);
+            }
+          },2000)
         })
       }
 
       useEffect(() => {
         getItem()
         .then(item => {
-          setProduto(item);
+          setProduto(item[0]);
         })
-      }, [])
+      }, [itemId])
 
     return (
         <>
