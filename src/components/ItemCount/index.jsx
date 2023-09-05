@@ -2,7 +2,9 @@
 import { useState } from "react";
 import style from "./style.module.css";
 
-export function ItemCount() {
+export function ItemCount({ onAdd, onRemove, selectedQty}) {
+  
+  /*
   const [itemCount, setItemCount] = useState(0);
   const estoqueTotal = 10;
 
@@ -22,16 +24,16 @@ export function ItemCount() {
       alert('Item não pode ser menor que 0!');
     }
   }
-  
+  */
   return (
     <div className={style.container}>
         <div>
-          <button className={style['btn-add-remove']} onClick={removeItem}>
+          <button className={style['btn-add-remove']} onClick={onRemove}>
             Remover Item
           </button>
         </div>
-        <div>{itemCount}</div>
-        <div><button className={style['btn-add-remove']} onClick={addItem}>
+        <div>{selectedQty}</div>
+        <div><button className={style['btn-add-remove']} onClick={onAdd}>
             Adicionar Item
           </button></div>
     </div>

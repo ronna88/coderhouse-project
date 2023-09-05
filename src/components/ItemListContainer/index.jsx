@@ -1,5 +1,4 @@
 
-import { ItemCount } from "../ItemCount";
 import { ItemList } from "../ItemList";
 import style from "./style.module.css";
 import { useParams } from "react-router-dom";
@@ -11,7 +10,6 @@ export function ItemListContainer({items}) {
     return (
         <>
             <div className={style.container}></div>
-            <div><ItemCount /></div>
             <br/>
             <ItemList categoryId={categoryId} items={items}/>
         </>
