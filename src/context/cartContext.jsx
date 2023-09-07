@@ -76,7 +76,6 @@ const CartProvider = ({ children }) => {
         addItem,
         removeItem,
         clear
-
     }
 
     return (
