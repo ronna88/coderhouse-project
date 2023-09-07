@@ -29,3 +29,16 @@ span {
 .preco {
     font-weight: bold;
 }
+
+.addCarrinho {
+    margin-right: 2rem;
+    background: #65b3f1;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    height: 40px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
