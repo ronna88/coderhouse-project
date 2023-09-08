@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./styles.module.css";
 // eslint-disable-next-line react/prop-types
 export function Item({ items }) {
@@ -10,11 +11,11 @@ export function Item({ items }) {
                     items.map(item =>
                         <div className={style.content} key={item.id}>
                             <ul className={style.card}>
-                                <a href={`/item/`+item.id}>
+                                <Link to={`/item/`+item.id}>
                                     <li><img src={item.image_url} /></li>
                                     <li>{item.title}</li>
                                     <li>{item.price}</li>
-                                </a>
+                                </Link>
                             </ul>
                         </div>
                     )

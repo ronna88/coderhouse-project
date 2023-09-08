@@ -21,7 +21,7 @@ const CartProvider = ({ children }) => {
         } else {
             const novoProduto = {
                 id: item.id,
-                title: item.titulo,
+                title: item.title,
                 description: item.description,
                 price: item.price,
                 image_url: item.image_url,
@@ -59,6 +59,14 @@ const CartProvider = ({ children }) => {
     }
 
     // eslint-disable-next-line no-unused-vars
+    const remove = (item) => {
+        console.log("removee");
+        const updatedItems = [...cartItems];
+        const novoArrayProdutos = updatedItems.filter(p => p.id !== item.id);
+        setCartItems(novoArrayProdutos);
+    }
+
+    // eslint-disable-next-line no-unused-vars
     const clear = () => {
         setCartItems([]);
         alert("Todos os itens foram removidos do carrinho");
@@ -75,7 +83,8 @@ const CartProvider = ({ children }) => {
         cartItems,
         addItem,
         removeItem,
-        clear
+        clear,
+        remove
     }
 
     return (

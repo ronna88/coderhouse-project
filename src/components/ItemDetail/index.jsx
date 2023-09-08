@@ -56,10 +56,7 @@ export function ItemDetail({produto}) {
         setSelectedQty(0);
     }
 
-    function handleClearCarrinho() {
-        clear();
-        setSelectedQty(0);
-    }
+    
 
     useEffect(() => {
         console.log(cartItems);
@@ -83,8 +80,7 @@ export function ItemDetail({produto}) {
                             <button className={style.addCarrinho} onClick={handleAddCarrinho}>Adicionar ao Carrinho</button>
                             <br/>
                             <button className={style.addCarrinho} onClick={handleRemoveCarrinho}>Remover do Carrinho</button>
-                            <br/>
-                            <button className={style.addCarrinho} onClick={handleClearCarrinho}>Limpar Carrinho</button>
+                            
                         </div>
                     </>
                 ) }
