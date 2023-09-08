@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: #66b3f1;
+    width: 100%;
+}
+
+.content {
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid;
+    padding: 10px;
+    flex-direction: row;
+    border-radius: 6px;
+    border-color: #65b3f1;
+    max-height: 380px;
+    min-width: 100%;
+    margin-bottom: 5px;
+
+    list-style: none;
+    gap: 10px;
+
+}
+.card1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.card2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    margin-left: 25px;
+}
+
+.cart-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.btnRemove {
+    background: none;
+    border: none;
+    color: #65b3f1;
+    cursor: pointer;
+}
+
+.addCarrinho {
+    margin-right: 2rem;
+    background: #65b3f1;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    height: 40px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

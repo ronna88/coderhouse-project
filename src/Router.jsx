@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { DefaultLayout } from "./layout/DefaultLayout";
+import { Cart } from "./components/Cart";
 
 export function Router() {
 
@@ -51,6 +52,7 @@ export function Router() {
                 <Route path="/" element={<ItemListContainer items={items}/>} />
                 <Route path="/category/:categoryId" element={<ItemListContainer items={items}/> } />
                 <Route path="/item/:itemId" element={<ItemDetailContainer items={items}/>} />
+                <Route path="/cart" element={<Cart/>}/>
             </Route>
         </Routes>
     )
