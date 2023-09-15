@@ -12,9 +12,9 @@ export function Item({ items }) {
                         <div className={style.content} key={item.id}>
                             <ul className={style.card}>
                                 <Link to={`/item/`+item.id}>
-                                    <li><img src={item.image_url} /></li>
+                                    <li><img src={item.image} className={style.image}/></li>
                                     <li>{item.title}</li>
-                                    <li>{item.price}</li>
+                                    <li>{`R$ ${item.price}`}</li>
                                 </Link>
                             </ul>
                         </div>

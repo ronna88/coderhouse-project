@@ -69,7 +69,7 @@ export function ItemDetail({produto}) {
                 { loading ? "Carregando item..." : (
                     <>
                         <div className={style.imagemProduto}>
-                            <img src={produto.image_url} />
+                            <img src={produto.image} />
                         </div>
                         <div className={style.detalhesProduto}>
                             <span className={style.titulo}>{produto.title}</span>

@@ -3,9 +3,14 @@ import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { DefaultLayout } from "./layout/DefaultLayout";
 import { Cart } from "./components/Cart";
+import { Admin } from "./pages/admin";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import app from "./services/firebase";
+import { useEffect, useState } from "react";
 
 export function Router() {
 
+  /*
     const items = [
         {
           id: 1,
@@ -41,7 +46,30 @@ export function Router() {
         }
     
       ]
+      */
 
+
+      const firestore = getFirestore(app);
+
+      const [productList, setProductList] = useState();
+
+      useEffect(()=>{
+        const fetchProdutos = async () => {
+          const produtosCollection = collection(firestore, "produtos");
+          const produtosSnapshot = await getDocs(produtosCollection);
+          
+          setProductList(
+            produtosSnapshot.docs.map((doc) => ({
+            id: doc.id, 
+            ...doc.data(),
+            }))
+          );
+        };
+
+        fetchProdutos();
+      },[firestore])
+
+      //console.log(productList);
 
     return (
         <Routes>
@@ -49,10 +77,14 @@ export function Router() {
             element={
                 <DefaultLayout />
             } >
-                <Route path="/" element={<ItemListContainer items={items}/>} />
-                <Route path="/category/:categoryId" element={<ItemListContainer items={items}/> } />
-                <Route path="/item/:itemId" element={<ItemDetailContainer items={items}/>} />
+                <Route path="/" element={<ItemListContainer items={productList}/>} />
+                <Route path="/category/:categoryId" element={<ItemListContainer items={productList}/> } />
+  
+                <Route path="/item/:itemId" element={<ItemDetailContainer items={productList}/>} />
+              
                 <Route path="/cart" element={<Cart/>}/>
+
+                <Route path="/admin" element={<Admin/>}/>
             </Route>
         </Routes>
     )

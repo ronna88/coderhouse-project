@@ -19,7 +19,7 @@ export function ItemDetailContainer({items}) {
               });
               resolve(itemSelecionado);
             }
-          },2000)
+          },0)
         })
       }
 

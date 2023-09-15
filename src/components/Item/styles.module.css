@@ -24,6 +24,7 @@
     border-color: #65b3f1;
     max-height: 380px;
     min-height: 380px;
+    width: 200px;
 
     list-style: none;
     gap: 10px;
@@ -39,4 +40,14 @@ a {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
+
+.image {
+    height: 120px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
