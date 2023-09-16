@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { ItemDetail } from "../ItemDetail";
-import style from "./styles.module.css";
 import { useParams } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
