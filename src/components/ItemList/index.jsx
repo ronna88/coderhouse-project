@@ -13,22 +13,21 @@ export function ItemList({categoryId, items}) {
     if(items !== undefined) {
       console.log("entrei aqui");
       console.log(items);
-      filtroProdutos();
+      //filtroProdutos();
     }
   }, [items])
 
   useEffect(() => {
     console.log("teste 11");
-  },[filtroProdutos])
+  },[])
   
 
 
   return (
     <>
         {
-          loading ? (<p className={style.loading}>Carregando Produtos...</p>) : (
-            <Item items={produtos}/>
-          )
+            <Item items={items}/>
+          
         }
         
     </>
