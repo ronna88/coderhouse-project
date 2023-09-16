@@ -77,14 +77,11 @@ export function Router() {
             element={
                 <DefaultLayout />
             } >
-                <Route path="/" element={<ItemListContainer items={productList}/>} />
-                <Route path="/category/:categoryId" element={<ItemListContainer items={productList}/> } />
-  
-                <Route path="/item/:itemId" element={<ItemDetailContainer items={productList}/>} />
-              
-                <Route path="/cart" element={<Cart/>}/>
-
-                <Route path="/admin" element={<Admin/>}/>
+                <Route path="/" element={ <ItemListContainer items={productList} /> } />
+                <Route path="/category/:categoryId" element={ <ItemListContainer items={productList} /> } />
+                <Route path="/item/:itemId" element={ <ItemDetailContainer items={productList} /> } />
+                <Route path="/cart" element={ <Cart /> } />
+                <Route path="/admin" element={ <Admin /> }/>
             </Route>
         </Routes>
     )
