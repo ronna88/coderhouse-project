@@ -39,9 +39,9 @@ export function Checkout() {
             .catch((error)=> {
                 console.log(error);
             })
-            //clearOrder();
+            clearOrder();
             alert('Pedido efetuado com sucesso !');
-            //navigate("/");
+            navigate("/");
     }
 
     const clearOrder = () => {
