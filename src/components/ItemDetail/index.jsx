@@ -8,7 +8,7 @@ import { CartContext } from "../../context/cartContext";
 export function ItemDetail({produto}) {
     const [loading, setLoading] = useState(true);
     const [selectedQty, setSelectedQty] = useState(0);
-    const estoqueTotal = 10;
+    const [estoqueTotal, setEstoqueTotal] = useState(0);
 
 
   // eslint-disable-next-line no-unused-vars
@@ -17,6 +17,7 @@ export function ItemDetail({produto}) {
     useEffect(() => {
         if(produto) {
             console.log(produto);
+            setEstoqueTotal(produto.stock)
             setLoading(false);
         }
     }, [produto])

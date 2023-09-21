@@ -8,6 +8,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import app from "./services/firebase";
 import { useEffect, useState } from "react";
 import { Vitrine } from "./pages/Vitrine";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 export function Router() {
 
@@ -70,7 +71,6 @@ export function Router() {
         fetchProdutos();
       },[firestore])
 
-      //console.log(productList);
 
     return (
         <Routes>
@@ -82,6 +82,7 @@ export function Router() {
                 <Route path="/category/:categoryId" element={ <ItemListContainer items={productList} /> } />
                 <Route path="/item/:itemId" element={ <ItemDetailContainer items={productList} /> } />
                 <Route path="/cart" element={ <Cart /> } />
+                <Route path="/checkout" element={<Checkout/> } />
                 <Route path="/admin" element={ <Admin /> }/>
             </Route>
         </Routes>

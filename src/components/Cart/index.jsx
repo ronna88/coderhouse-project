@@ -3,18 +3,21 @@ import style from "./style.module.css";
 import { CartContext } from "../../context/cartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export function Cart() {
 
     const { cartItems, remove, clear } = useContext(CartContext);
-
+    const navigate = useNavigate();
 
     function handleClearCarrinho() {
         clear();
     }
 
+    function handleCheckout() {
+        navigate("/checkout");
+    }
 
     return (
         <div className={style.container}>
@@ -51,6 +54,8 @@ export function Cart() {
             </div>
             <br/>
             <button className={style.addCarrinho} onClick={handleClearCarrinho}>Limpar Carrinho</button>
+            <br/>
+            <button className={style.addCarrinho} onClick={handleCheckout}>Checkout</button>
         </div>
 
     )
