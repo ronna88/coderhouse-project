@@ -35,28 +35,36 @@ const CartProvider = ({ children }) => {
 
     // eslint-disable-next-line no-unused-vars
     const removeItem = (item, qty) => {
-        const updatedItems = [...cartItems];
-        if (isInCart(item.id)) {
-            const indice = updatedItems.findIndex(produto => item.id === produto.id);
-            if (indice !== -1) {
-                if (updatedItems[indice].qty - qty === 0) {
-                    const novoArrayProdutos = updatedItems.filter(p => p.id !== item.id);
-                    setCartItems(novoArrayProdutos);
-                } else {
-
-                    if (updatedItems[indice].qty < qty) {
-                        alert("A quantidade que está tentando remover é maior que a existente no carrinho.");
-                    } else {
-                        updatedItems[indice].qty = updatedItems[indice].qty - qty;
-                        setCartItems(updatedItems);
-                    }
-                }
-            }
-            alert("Item atualizado no carrinho");
-        } else {
+        if (!isInCart(item.id)) {
             alert("Item não está no carrinho!");
+            return;
         }
+
+        const updatedItems = [...cartItems];
+        const indice = updatedItems.findIndex(produto => item.id === produto.id);
+
+        if (indice === -1) {
+            alert("Erro ao encontrar o item no carrinho!");
+            return;
+        }
+
+        if (updatedItems[indice].qty - qty === 0) {
+            const novoArrayProdutos = updatedItems.filter(p => p.id !== item.id);
+            setCartItems(novoArrayProdutos);
+        } else if (updatedItems[indice].qty < qty) {
+            alert("A quantidade que está tentando remover é maior que a existente no carrinho.");
+        } else {
+            updatedItems[indice].qty -= qty;
+            setCartItems(updatedItems);
+        }
+
+        alert("Item atualizado no carrinho");
+       
     }
+
+
+    //return ItemList.findIndex(produto => item.id === produto.id);
+    //}
 
     // eslint-disable-next-line no-unused-vars
     const remove = (item) => {

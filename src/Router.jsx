@@ -7,6 +7,8 @@ import { Admin } from "./pages/admin";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import app from "./services/firebase";
 import { useEffect, useState } from "react";
+import { Vitrine } from "./pages/Vitrine";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 export function Router() {
 
@@ -69,7 +71,6 @@ export function Router() {
         fetchProdutos();
       },[firestore])
 
-      //console.log(productList);
 
     return (
         <Routes>
@@ -77,14 +78,12 @@ export function Router() {
             element={
                 <DefaultLayout />
             } >
-                <Route path="/" element={<ItemListContainer items={productList}/>} />
-                <Route path="/category/:categoryId" element={<ItemListContainer items={productList}/> } />
-  
-                <Route path="/item/:itemId" element={<ItemDetailContainer items={productList}/>} />
-              
-                <Route path="/cart" element={<Cart/>}/>
-
-                <Route path="/admin" element={<Admin/>}/>
+                <Route path="/" element={ <Vitrine /> } />
+                <Route path="/category/:categoryId" element={ <ItemListContainer items={productList} /> } />
+                <Route path="/item/:itemId" element={ <ItemDetailContainer items={productList} /> } />
+                <Route path="/cart" element={ <Cart /> } />
+                <Route path="/checkout" element={<Checkout/> } />
+                <Route path="/admin" element={ <Admin /> }/>
             </Route>
         </Routes>
     )
