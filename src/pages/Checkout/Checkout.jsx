@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../../context/cartContext"
 import style from "./style.module.css";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
@@ -10,7 +10,7 @@ export function Checkout() {
     const firestore = getFirestore(app);
     const navigate = useNavigate();
 
-    const {cartItems}  = useContext(CartContext);
+    const {cartItems, clear}  = useContext(CartContext);
     const [buyer, setBuyer] = useState({
         name: '',
         email:'',
@@ -30,17 +30,21 @@ export function Checkout() {
 
 
     const cadastrarPedido = (order) => {
+        console.log("cadastrando pedido...");
         console.log(order);
 
         addDoc(collection(firestore, "order"), order)
             .then((docRef) => {
                 console.log(docRef.id);
+                clearOrder();
+                clear();
             })
             .catch((error)=> {
                 console.log(error);
             })
-            clearOrder();
+            
             alert('Pedido efetuado com sucesso !');
+            
             navigate("/");
     }
 
@@ -68,9 +72,17 @@ export function Checkout() {
         const date = new Date().toLocaleDateString("pt-BR");
         console.log(date);
         setOrder({...order, buyer:buyer, items:listItems, total:total, date:date})
-        console.log(order);
-        cadastrarPedido(order);
+        //console.log(order);
+        //cadastrarPedido(order);
     }
+
+
+    useEffect(()=>{
+        console.log(order)
+        if(order.buyer.name !== ''){
+            cadastrarPedido(order);
+        }
+    },[order])
 
     return (
         <div className={style.container}>
